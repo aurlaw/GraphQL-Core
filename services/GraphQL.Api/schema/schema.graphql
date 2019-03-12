@@ -1,0 +1,126 @@
+# source: http://localhost:50000/graphql/
+# timestamp: Tue Sep 11 2018 23:42:20 GMT-0400 (EDT)
+
+schema {
+  query: NHLStatsQuery
+  mutation: PlayerStatMutation
+}
+
+"""
+The `Date` scalar type represents a year, month and day in accordance with the
+[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
+"""
+scalar Date
+
+"""
+The `DateTime` scalar type represents a date and time. `DateTime` expects
+timestamps to be formatted in accordance with the
+[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
+"""
+scalar DateTime
+
+"""
+The `DateTimeOffset` scalar type represents a date, time and offset from UTC.
+`DateTimeOffset` expects timestamps to be formatted in accordance with the
+[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
+"""
+scalar DateTimeOffset
+
+scalar Decimal
+
+type LeagueType {
+  abbreviation: String!
+  id: Int!
+  name: String!
+}
+
+"""
+The `Milliseconds` scalar type represents a period of time represented as the total number of milliseconds.
+"""
+scalar Milliseconds
+
+type NHLStatsQuery {
+  leagues: [LeagueType]
+  player(id: Int = null): PlayerType
+  players: [PlayerType]
+  randomPlayer: PlayerType
+  seasons: [SeasonType]
+  teams: [TeamType]
+}
+
+input PlayerInput {
+  name: String!
+  birthPlace: String = null
+  height: String = null
+  weightLbs: Int = null
+  birthDate: Date = null
+}
+
+type PlayerStatMutation {
+  createPlayer(player: PlayerInput!, skaterStats: [SkaterStatisticInput] = null): PlayerType
+  deletePlayer(playerId: Int!): StatusResultType
+}
+
+type PlayerType {
+  birthDate: String
+  birthPlace: String!
+  height: String!
+  id: Int!
+  name: String
+
+  """Player's skater stats"""
+  skaterSeasonStats(limit: Int = null, offset: Int = null, sort: Boolean = null): [SkaterStatisticType]
+  weightLbs: Int!
+}
+
+type SeasonType {
+  id: Int!
+  name: String!
+}
+
+"""
+The `Seconds` scalar type represents a period of time represented as the total number of seconds.
+"""
+scalar Seconds
+
+input SkaterStatisticInput {
+  seasonId: Int = null
+  leagueId: Int = null
+  teamId: Int = null
+  gamesPlayed: Int = null
+  goals: Int = null
+  assists: Int = null
+  points: Int = null
+  plusMinus: Int = null
+}
+
+type SkaterStatisticType {
+  assists: Int!
+  goals: Int!
+  gp: Int!
+  id: Int!
+  league: String!
+  plusMinus: Int
+  points: Int!
+  season: String!
+  seasonId: Int!
+  team: String!
+}
+
+type StatusResultType {
+  id: Int!
+  message: String!
+  statusType: StatusType
+}
+
+enum StatusType {
+  NONE
+  DELETED
+  ERROR
+}
+
+type TeamType {
+  abbreviation: String!
+  id: Int!
+  name: String!
+}

@@ -1,0 +1,38 @@
+{
+  "name": "graphql-demo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@aspnet/signalr": "^1.0.3",
+    "apollo-boost": "^0.1.15",
+    "bootstrap": "^3.3.7",
+    "graphql": "^14.0.2",
+    "react": "^16.5.0",
+    "react-apollo": "^2.1.11",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.5.0",
+    "react-helmet": "^5.2.0",
+    "react-router": "^4.3.1",
+    "react-router-bootstrap": "^0.24.4",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "GraphQLApi": {
+      "schemaPath": "schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "default": "http://localhost:50000/graphql/"
+        }
+      }
+    }
+  }
+}

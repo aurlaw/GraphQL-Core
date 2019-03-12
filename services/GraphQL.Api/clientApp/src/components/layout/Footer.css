@@ -1,0 +1,19 @@
+footer {    
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    font-size: 0.8em;
+    font-style: italic;
+    /* background: rgb(30,87,153); */
+    color: rgb(216, 224, 230);
+    padding: 1em;
+    text-align: right;
+
+}
+
+
+/* @media (min-width: 768px) {
+
+
+} */
