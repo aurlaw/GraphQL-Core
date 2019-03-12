@@ -4,7 +4,7 @@ This demo is based on https://github.com/mmacneil/ASPNetCoreGraphQL with an acco
 
 ### GraphQL API
 
-- .NET Core 2.1
+- .NET Core 2.2
 - SQL Server 2017 (may support lower versions, this codebase was created against 2017 and Azure SQL)
 - Hangfire
 - Azure SignalR
